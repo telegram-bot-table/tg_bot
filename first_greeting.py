@@ -3,6 +3,7 @@ import telebot
 bot = telebot.TeleBot('1661693507:AAFMH6FVV5eIazF2mwR6GV6vvBCbkjCkWY0')
 
 
+# print("Hello world")
 def main():
     @bot.message_handler(content_types=['text'])
     def get_text_messages(message):
