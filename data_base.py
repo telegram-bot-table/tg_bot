@@ -16,8 +16,6 @@ def init_db(conn, force: bool = False):
     c = conn.cursor()
 
     # Информация о пользователе
-    # TODO: создать при необходимости...
-
     # Сообщения от пользователей
     if force:
         c.execute('DROP TABLE IF EXISTS user_message')
