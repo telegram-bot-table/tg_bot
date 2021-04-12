@@ -1,5 +1,7 @@
 import telebot
+import parse
 
+#parse.get_data('2021-04-12')
 bot = telebot.TeleBot("1661693507:AAECqTR1YL52oEbopZiXRunrZs-qJBqKeys")
 
 
@@ -25,8 +27,17 @@ def send_text(message):
         bot.send_message(message.chat.id, 'Ещё раз привет!')
     elif message.text.lower() == 'пока':
         bot.send_message(message.chat.id, 'Пока!')
-    elif message.text.lower() == 'Расписание ВУЗа':
-        start_message(commands=['test'])
+    elif message.text == 'Расписание ВУЗа':
+        bot.send_message(message.chat.id, 'Введите дату в формате YYYY-MM-DD')
+        bot.register_next_step_handler(message, print_shedule)
+        #start_message(commands=['test'])
+def print_shedule(message):
+    t = parse.get_data(message.text)
+    for x in t:
+        bot.send_message(message.chat.id, x[0] + '\nПрепод: '+ x[1]+ '\nМесто  '+x[2])
+    bot.register_next_step_handler(message, send_text)
+            
+        
 
 
 @bot.callback_query_handler(func=lambda call: True)
