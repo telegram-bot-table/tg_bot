@@ -26,4 +26,4 @@ def get_data(date_entry, id_dir=99, id_group=30687):
     return list
        
 
-print(get_data(input(' YYYY-MM-DD ')))
+#print(get_data(input(' YYYY-MM-DD ')))
