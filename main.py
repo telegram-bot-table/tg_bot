@@ -2,7 +2,6 @@ import telebot
 import parse
 
 #parse.get_data('2021-04-12')
-bot = telebot.TeleBot("1661693507:AAECqTR1YL52oEbopZiXRunrZs-qJBqKeys")
 
 
 @bot.message_handler(commands=['start'])
